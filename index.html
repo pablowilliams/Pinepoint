@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Pinepoint — a living dashboard of AI-assisted design craft. Personas, tokens, motion, audits, before/after, and 30+ skill demos in one page." />
+  <meta name="theme-color" content="#0b0d12" />
+  <meta property="og:title" content="Pinepoint — Design Skill Atlas" />
+  <meta property="og:description" content="A live dashboard demonstrating 30+ AI-assisted design skills." />
+  <meta property="og:type" content="website" />
+  <title>Pinepoint — Design Skill Atlas</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a href="#top" class="brand" aria-label="Pinepoint, home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-text">Pinepoint<span class="brand-suffix">/atlas</span></span>
+      </a>
+      <nav class="section-nav" aria-label="Sections">
+        <a href="#atlas">Atlas</a>
+        <a href="#tokens">Tokens</a>
+        <a href="#type">Type</a>
+        <a href="#motion">Motion</a>
+        <a href="#beforeafter">Before/After</a>
+        <a href="#components">Components</a>
+        <a href="#personas">Personas</a>
+        <a href="#audits">Audits</a>
+        <a href="#process">Process</a>
+      </nav>
+      <div class="header-actions">
+        <button type="button" id="theme-toggle" class="icon-btn" aria-pressed="false" aria-label="Switch to light theme">
+          <svg class="icon-sun" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="4"/><g><line x1="10" y1="1" x2="10" y2="4"/><line x1="10" y1="16" x2="10" y2="19"/><line x1="1" y1="10" x2="4" y2="10"/><line x1="16" y1="10" x2="19" y2="10"/><line x1="3.5" y1="3.5" x2="5.6" y2="5.6"/><line x1="14.4" y1="14.4" x2="16.5" y2="16.5"/><line x1="3.5" y1="16.5" x2="5.6" y2="14.4"/><line x1="14.4" y1="5.6" x2="16.5" y2="3.5"/></g></svg>
+          <svg class="icon-moon" viewBox="0 0 20 20" aria-hidden="true"><path d="M15 12.5A6 6 0 1 1 7.5 5a5 5 0 0 0 7.5 7.5z"/></svg>
+          <span class="icon-btn-label" id="theme-toggle-label">Light</span>
+        </button>
+        <a class="btn btn-primary" href="https://github.com/" id="repo-link" target="_blank" rel="noopener">View source</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+
+    <!-- HERO -->
+    <section id="top" class="hero" aria-labelledby="hero-h1">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <p class="eyebrow">A design portfolio · v1.0</p>
+        <h1 id="hero-h1" class="hero-h1">
+          Thirty<span class="hero-amp">+</span> AI design skills,<br />
+          <span class="hero-accent">one living dashboard.</span>
+        </h1>
+        <p class="hero-sub">
+          Pinepoint is a fictional product, designed end-to-end as a portfolio of AI-assisted craft.
+          Discovery, tokens, components, motion, audits — every skill produces a visible artifact on this page.
+        </p>
+        <div class="hero-stats" role="list" aria-label="Project at a glance">
+          <div class="stat" role="listitem"><span class="stat-num" data-countup="34">0</span><span class="stat-label">skills exercised</span></div>
+          <div class="stat" role="listitem"><span class="stat-num" data-countup="12">0</span><span class="stat-label">live demos</span></div>
+          <div class="stat" role="listitem"><span class="stat-num" data-countup="6">0</span><span class="stat-label">design phases</span></div>
+          <div class="stat" role="listitem"><span class="stat-num" data-countup="98">0</span><span class="stat-label">Lighthouse a11y</span></div>
+        </div>
+        <div class="hero-actions">
+          <a href="#atlas" class="btn btn-primary btn-lg">Explore the atlas</a>
+          <a href="#process" class="btn btn-ghost btn-lg">Read the process</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILL ATLAS -->
+    <section id="atlas" class="section section-atlas" aria-labelledby="atlas-h2">
+      <div class="section-head">
+        <p class="eyebrow">01 / Atlas</p>
+        <h2 id="atlas-h2">Skill atlas</h2>
+        <p class="lede">Filter the catalog. Each chip flips a card. Cards link to the live demo, audit, or document this skill produced.</p>
+      </div>
+
+      <div class="filter-row" role="group" aria-label="Filter skills by discipline">
+        <button type="button" class="chip is-on" data-filter="all" aria-pressed="true">All <span class="chip-count" data-count="all">34</span></button>
+        <button type="button" class="chip" data-filter="strategy" aria-pressed="false">Strategy <span class="chip-count" data-count="strategy">6</span></button>
+        <button type="button" class="chip" data-filter="research" aria-pressed="false">Research <span class="chip-count" data-count="research">3</span></button>
+        <button type="button" class="chip" data-filter="system" aria-pressed="false">Systems <span class="chip-count" data-count="system">4</span></button>
+        <button type="button" class="chip" data-filter="craft" aria-pressed="false">Craft <span class="chip-count" data-count="craft">9</span></button>
+        <button type="button" class="chip" data-filter="motion" aria-pressed="false">Motion <span class="chip-count" data-count="motion">3</span></button>
+        <button type="button" class="chip" data-filter="quality" aria-pressed="false">Quality <span class="chip-count" data-count="quality">5</span></button>
+        <button type="button" class="chip" data-filter="ship" aria-pressed="false">Ship <span class="chip-count" data-count="ship">4</span></button>
+      </div>
+
+      <ul class="atlas-grid" id="atlas-grid" aria-label="Skill cards">
+        <!-- cards populated by app.js for clean ordering, but plain anchors used so JS-off still renders -->
+      </ul>
+
+      <p id="atlas-status" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
+    </section>
+
+    <!-- TOKENS / COLOR -->
+    <section id="tokens" class="section section-tokens" aria-labelledby="tokens-h2">
+      <div class="section-head">
+        <p class="eyebrow">02 / Foundations</p>
+        <h2 id="tokens-h2">Color tokens with live contrast</h2>
+        <p class="lede">Every token pair below is rendered with its measured WCAG contrast ratio, the AA / AAA verdict, and a non-color status icon. Click a swatch to copy its hex.</p>
+      </div>
+
+      <div class="palette-grid" id="palette-grid" aria-label="Brand palette with contrast pairs"></div>
+
+      <h3 class="subhead">Spacing scale</h3>
+      <div class="spacing-scale" aria-label="Spacing scale 4 8 12 16 24 32 48 64 96">
+        <div class="space-cell" data-px="4"><span class="space-bar" style="--w:4px"></span><span class="space-label">4</span></div>
+        <div class="space-cell" data-px="8"><span class="space-bar" style="--w:8px"></span><span class="space-label">8</span></div>
+        <div class="space-cell" data-px="12"><span class="space-bar" style="--w:12px"></span><span class="space-label">12</span></div>
+        <div class="space-cell" data-px="16"><span class="space-bar" style="--w:16px"></span><span class="space-label">16</span></div>
+        <div class="space-cell" data-px="24"><span class="space-bar" style="--w:24px"></span><span class="space-label">24</span></div>
+        <div class="space-cell" data-px="32"><span class="space-bar" style="--w:32px"></span><span class="space-label">32</span></div>
+        <div class="space-cell" data-px="48"><span class="space-bar" style="--w:48px"></span><span class="space-label">48</span></div>
+        <div class="space-cell" data-px="64"><span class="space-bar" style="--w:64px"></span><span class="space-label">64</span></div>
+        <div class="space-cell" data-px="96"><span class="space-bar" style="--w:96px"></span><span class="space-label">96</span></div>
+      </div>
+
+      <h3 class="subhead">Radius &amp; elevation</h3>
+      <div class="elevation-row" aria-label="Elevation tokens">
+        <div class="elev elev-0">e0</div>
+        <div class="elev elev-1">e1</div>
+        <div class="elev elev-2">e2</div>
+        <div class="elev elev-3">e3</div>
+        <div class="elev elev-4">e4</div>
+      </div>
+    </section>
+
+    <!-- TYPE -->
+    <section id="type" class="section section-type" aria-labelledby="type-h2">
+      <div class="section-head">
+        <p class="eyebrow">03 / Foundations</p>
+        <h2 id="type-h2">Type system</h2>
+        <p class="lede">Display in <em>Fraunces</em>. UI in <em>Inter</em>. Mono in <em>JetBrains&nbsp;Mono</em>. The ramp follows a 1.25 modular scale, anchored to a 16&nbsp;px base.</p>
+      </div>
+
+      <div class="type-ramp" aria-label="Type ramp">
+        <div class="ramp-row"><span class="ramp-label">D1 · 64/72</span><span class="ramp-sample type-d1">From signal to strategy.</span></div>
+        <div class="ramp-row"><span class="ramp-label">D2 · 48/56</span><span class="ramp-sample type-d2">Designed end to end.</span></div>
+        <div class="ramp-row"><span class="ramp-label">H1 · 36/44</span><span class="ramp-sample type-h1">Roadmaps you can defend.</span></div>
+        <div class="ramp-row"><span class="ramp-label">H2 · 28/36</span><span class="ramp-sample type-h2">Customer signals, clustered.</span></div>
+        <div class="ramp-row"><span class="ramp-label">H3 · 22/30</span><span class="ramp-sample type-h3">Threads link insight to outcome.</span></div>
+        <div class="ramp-row"><span class="ramp-label">Body · 16/26</span><span class="ramp-sample type-body">Body copy is set in Inter at 16 pixels with a 1.6 line-height for comfortable scanning at desk and on mobile.</span></div>
+        <div class="ramp-row"><span class="ramp-label">Small · 13/20</span><span class="ramp-sample type-small">Captions, metadata, table cells. Tight enough to disappear, large enough to read.</span></div>
+        <div class="ramp-row"><span class="ramp-label">Mono · 13/20</span><span class="ramp-sample type-mono">tokens.color.brand.500 = #5b8cff</span></div>
+      </div>
+    </section>
+
+    <!-- MOTION -->
+    <section id="motion" class="section section-motion" aria-labelledby="motion-h2">
+      <div class="section-head">
+        <p class="eyebrow">04 / Craft</p>
+        <h2 id="motion-h2">Motion playground</h2>
+        <p class="lede">Tune duration and easing; watch six primitives respond. Reduced-motion users get a static end-state by default and an explicit opt-in.</p>
+      </div>
+
+      <div class="motion-controls" role="group" aria-label="Motion controls">
+        <button type="button" id="motion-play" class="btn btn-secondary" aria-pressed="false">Play once</button>
+        <button type="button" id="motion-loop" class="btn btn-ghost" aria-pressed="false">Loop</button>
+        <label class="range-control">
+          <span class="range-label">Duration <span id="motion-dur-val" class="range-value">450ms</span></span>
+          <input type="range" id="motion-dur" min="120" max="1200" step="20" value="450" aria-valuemin="120" aria-valuemax="1200" aria-valuenow="450" aria-valuetext="450 milliseconds" />
+        </label>
+        <label class="range-control">
+          <span class="range-label">Easing <span id="motion-ease-val" class="range-value">out-quart</span></span>
+          <input type="range" id="motion-ease" min="0" max="4" step="1" value="1" aria-valuemin="0" aria-valuemax="4" aria-valuenow="1" aria-valuetext="ease out quart" />
+        </label>
+        <button type="button" id="motion-rm" class="btn btn-ghost" aria-pressed="false">Honor reduced motion</button>
+      </div>
+
+      <div class="motion-grid" aria-label="Motion primitives">
+        <figure class="motion-tile"><div class="motion-stage" data-anim="fade"><div class="motion-block"></div></div><figcaption>Fade</figcaption></figure>
+        <figure class="motion-tile"><div class="motion-stage" data-anim="slide"><div class="motion-block"></div></div><figcaption>Slide</figcaption></figure>
+        <figure class="motion-tile"><div class="motion-stage" data-anim="scale"><div class="motion-block"></div></div><figcaption>Scale</figcaption></figure>
+        <figure class="motion-tile"><div class="motion-stage" data-anim="rotate"><div class="motion-block"></div></div><figcaption>Rotate</figcaption></figure>
+        <figure class="motion-tile"><div class="motion-stage" data-anim="reveal"><div class="motion-block reveal-mask"></div></div><figcaption>Reveal</figcaption></figure>
+        <figure class="motion-tile"><div class="motion-stage" data-anim="bounce"><div class="motion-block"></div></div><figcaption>Spring</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- BEFORE / AFTER -->
+    <section id="beforeafter" class="section section-ba" aria-labelledby="ba-h2">
+      <div class="section-head">
+        <p class="eyebrow">05 / Craft</p>
+        <h2 id="ba-h2">Before &amp; after</h2>
+        <p class="lede">Three skill passes, three sliders. Drag the handle, or tab to it and use the arrow keys.</p>
+      </div>
+
+      <div class="ba-stack">
+        <article class="ba-card" aria-labelledby="ba1-h">
+          <header class="ba-head"><h3 id="ba1-h">Hero · <span class="ba-skill">impeccable-bolder</span></h3><p class="ba-note">Type weight 600 → 800, gradient lift, dramatic lede.</p></header>
+          <div class="ba-frame" data-ba="1">
+            <div class="ba-before" aria-label="Before bolder pass">
+              <div class="mini-hero mini-hero-tame">
+                <p class="mh-eyebrow">Pinepoint</p>
+                <p class="mh-title">A roadmap tool for product teams.</p>
+                <p class="mh-sub">Aggregate signal, prioritize, ship.</p>
+              </div>
+            </div>
+            <div class="ba-after" aria-label="After bolder pass">
+              <div class="mini-hero mini-hero-bold">
+                <p class="mh-eyebrow">PINEPOINT</p>
+                <p class="mh-title">From signal to <em>shipped</em> strategy.</p>
+                <p class="mh-sub">Cluster customer signal, score with confidence, defend the roadmap.</p>
+              </div>
+            </div>
+            <input type="range" min="0" max="100" value="50" class="ba-range" aria-label="Reveal after image" data-ba-input="1" />
+            <div class="ba-handle" aria-hidden="true"></div>
+            <span class="ba-tag ba-tag-before">Before</span>
+            <span class="ba-tag ba-tag-after">After</span>
+          </div>
+        </article>
+
+        <article class="ba-card" aria-labelledby="ba2-h">
+          <header class="ba-head"><h3 id="ba2-h">Settings · <span class="ba-skill">impeccable-quieter</span></h3><p class="ba-note">Toned saturation, looser rhythm, neutral surfaces.</p></header>
+          <div class="ba-frame" data-ba="2">
+            <div class="ba-before" aria-label="Before quieter pass">
+              <div class="mini-settings loud">
+                <div class="ms-row"><span>Notifications</span><span class="ms-pill on">ON</span></div>
+                <div class="ms-row"><span>Theme accent</span><span class="ms-pill loud-pill">Hot pink</span></div>
+                <div class="ms-row"><span>Density</span><span class="ms-pill loud-pill">Compact</span></div>
+                <div class="ms-row"><span>Beta features</span><span class="ms-pill on">ON</span></div>
+              </div>
+            </div>
+            <div class="ba-after" aria-label="After quieter pass">
+              <div class="mini-settings calm">
+                <div class="ms-row"><span>Notifications</span><span class="ms-pill calm-pill">On</span></div>
+                <div class="ms-row"><span>Theme accent</span><span class="ms-pill calm-pill">Slate</span></div>
+                <div class="ms-row"><span>Density</span><span class="ms-pill calm-pill">Comfortable</span></div>
+                <div class="ms-row"><span>Beta features</span><span class="ms-pill calm-pill">Off</span></div>
+              </div>
+            </div>
+            <input type="range" min="0" max="100" value="50" class="ba-range" aria-label="Reveal after image" data-ba-input="2" />
+            <div class="ba-handle" aria-hidden="true"></div>
+            <span class="ba-tag ba-tag-before">Before</span>
+            <span class="ba-tag ba-tag-after">After</span>
+          </div>
+        </article>
+
+        <article class="ba-card" aria-labelledby="ba3-h">
+          <header class="ba-head"><h3 id="ba3-h">Pricing · <span class="ba-skill">impeccable-distill</span></h3><p class="ba-note">Removed seven badges and three icons. Kept the ladder.</p></header>
+          <div class="ba-frame" data-ba="3">
+            <div class="ba-before" aria-label="Before distill pass">
+              <div class="mini-price loud">
+                <div class="mp-tier"><h4>Free</h4><p>$0 ★ POPULAR ★</p><p class="mp-list">✔ Up to 3 projects ✔ 1 user ✔ Basic insights ✔ Community support ✔ Email digest ✔ Public roadmap</p></div>
+                <div class="mp-tier"><h4>Team</h4><p>$24/u/mo ★ BEST ★</p><p class="mp-list">✔ Unlimited projects ✔ SSO ✔ Audit log ✔ Priority support ✔ Roles ✔ API access ✔ Slack integration</p></div>
+              </div>
+            </div>
+            <div class="ba-after" aria-label="After distill pass">
+              <div class="mini-price calm">
+                <div class="mp-tier"><h4>Free</h4><p class="mp-price">$0</p><p class="mp-list">3 projects · 1 user · basic insights</p></div>
+                <div class="mp-tier featured"><h4>Team</h4><p class="mp-price">$24<span>/user/mo</span></p><p class="mp-list">Unlimited · SSO · roles · API</p></div>
+              </div>
+            </div>
+            <input type="range" min="0" max="100" value="50" class="ba-range" aria-label="Reveal after image" data-ba-input="3" />
+            <div class="ba-handle" aria-hidden="true"></div>
+            <span class="ba-tag ba-tag-before">Before</span>
+            <span class="ba-tag ba-tag-after">After</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- COMPONENT LIBRARY (mini) -->
+    <section id="components" class="section section-components" aria-labelledby="components-h2">
+      <div class="section-head">
+        <p class="eyebrow">06 / System</p>
+        <h2 id="components-h2">Component library</h2>
+        <p class="lede">Buttons, inputs, badges, cards, charts, empty states. Built once with tokens, deployed everywhere.</p>
+      </div>
+
+      <div class="library">
+        <div class="lib-tile">
+          <h3 class="lib-h">Buttons</h3>
+          <div class="lib-row">
+            <button type="button" class="btn btn-primary">Primary</button>
+            <button type="button" class="btn btn-secondary">Secondary</button>
+            <button type="button" class="btn btn-ghost">Ghost</button>
+            <button type="button" class="btn btn-danger">Danger</button>
+            <button type="button" class="btn btn-primary" disabled aria-disabled="true">Disabled</button>
+          </div>
+        </div>
+
+        <div class="lib-tile">
+          <h3 class="lib-h">Inputs</h3>
+          <div class="lib-row column">
+            <label class="field"><span class="field-label">Email</span><input type="email" class="input" placeholder="maya@pinepoint.app" /></label>
+            <label class="field error"><span class="field-label">Workspace URL</span><input type="text" class="input" value="my workspace" aria-invalid="true" aria-describedby="ws-err" /><span id="ws-err" class="field-msg">Use lowercase, hyphens only.</span></label>
+            <label class="field"><span class="field-label">Plan</span>
+              <select class="input">
+                <option>Free</option><option>Team</option><option>Scale</option>
+              </select>
+            </label>
+          </div>
+        </div>
+
+        <div class="lib-tile">
+          <h3 class="lib-h">Badges</h3>
+          <div class="lib-row">
+            <span class="badge badge-success">Shipped</span>
+            <span class="badge badge-warning">In review</span>
+            <span class="badge badge-info">Discovery</span>
+            <span class="badge badge-danger">Blocked</span>
+            <span class="badge badge-neutral">Backlog</span>
+          </div>
+        </div>
+
+        <div class="lib-tile lib-tile-wide">
+          <h3 class="lib-h">Insight thread card</h3>
+          <article class="insight">
+            <header class="insight-head">
+              <span class="badge badge-info">Discovery</span>
+              <h4 class="insight-title">Onboarding drop at workspace setup</h4>
+              <span class="insight-meta">17 signals · updated 2h ago</span>
+            </header>
+            <p class="insight-body">14 of 22 trial accounts abandoned setup at the SSO connection step. Hypothesis: the SSO selector is below the fold on 13&quot; laptops.</p>
+            <footer class="insight-foot">
+              <div class="avatars" aria-label="3 contributors">
+                <span class="avatar" style="--c1:#5b8cff;--c2:#9cb6ff">M</span>
+                <span class="avatar" style="--c1:#ff7ab8;--c2:#ffb1d4">D</span>
+                <span class="avatar" style="--c1:#3ddc97;--c2:#9bf2c9">S</span>
+              </div>
+              <div class="insight-actions">
+                <button class="btn btn-ghost btn-sm">Open thread</button>
+                <button class="btn btn-secondary btn-sm">Mark prioritized</button>
+              </div>
+            </footer>
+          </article>
+        </div>
+
+        <div class="lib-tile lib-tile-wide">
+          <h3 class="lib-h">Sparkline + trend</h3>
+          <div class="trend">
+            <div class="trend-meta"><p class="trend-num"><span data-countup="412">0</span></p><p class="trend-sub">signals this week · <span class="delta-up">+18%</span></p></div>
+            <svg class="spark" viewBox="0 0 220 60" role="img" aria-label="Signal volume sparkline trending up 18 percent">
+              <defs><linearGradient id="sg" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="var(--accent)" stop-opacity="0.5"/><stop offset="100%" stop-color="var(--accent)" stop-opacity="0"/></linearGradient></defs>
+              <path d="M0,45 L20,40 L40,42 L60,30 L80,34 L100,22 L120,28 L140,18 L160,24 L180,12 L200,16 L220,8 L220,60 L0,60 Z" fill="url(#sg)"/>
+              <path d="M0,45 L20,40 L40,42 L60,30 L80,34 L100,22 L120,28 L140,18 L160,24 L180,12 L200,16 L220,8" fill="none" stroke="var(--accent)" stroke-width="2"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="lib-tile">
+          <h3 class="lib-h">Empty state</h3>
+          <div class="empty">
+            <div class="empty-glyph" aria-hidden="true">
+              <svg viewBox="0 0 56 56"><circle cx="28" cy="28" r="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 4"/><path d="M20 30 l6 6 l12 -14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <p class="empty-title">Inbox zero, for now.</p>
+            <p class="empty-sub">New signals will land here as soon as Intercom and Linear sync.</p>
+            <button type="button" class="btn btn-secondary btn-sm">Connect a source</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PERSONAS -->
+    <section id="personas" class="section section-personas" aria-labelledby="personas-h2">
+      <div class="section-head">
+        <p class="eyebrow">07 / Research</p>
+        <h2 id="personas-h2">Personas</h2>
+        <p class="lede">Three users, three jobs-to-be-done. Built with <code>ux-researcher-designer</code>, sharpened with <code>impeccable-clarify</code>.</p>
+      </div>
+
+      <div class="persona-grid">
+        <article class="persona">
+          <header class="persona-head"><span class="persona-avatar" style="--c1:#5b8cff;--c2:#9cb6ff">M</span><div><h3>Maya · Senior PM</h3><p class="persona-role">200-person SaaS · 6yr experience</p></div></header>
+          <p class="persona-jtbd">"Help me prioritize <em>confidently</em> when 200 customers all want different things."</p>
+          <ul class="persona-list">
+            <li><span>Goal</span> Defend roadmap to leadership monthly.</li>
+            <li><span>Pain</span> Signals scatter across Slack, Linear, support.</li>
+            <li><span>Win</span> Cluster signals into themes she can rank.</li>
+          </ul>
+        </article>
+        <article class="persona">
+          <header class="persona-head"><span class="persona-avatar" style="--c1:#ff7ab8;--c2:#ffb1d4">D</span><div><h3>Dev · VP Product</h3><p class="persona-role">Series B · reports to CEO</p></div></header>
+          <p class="persona-jtbd">"Show me one source of truth I can take to the board."</p>
+          <ul class="persona-list">
+            <li><span>Goal</span> Roadmap tied to OKRs and revenue.</li>
+            <li><span>Pain</span> Six tools, six versions of "the truth."</li>
+            <li><span>Win</span> One link, public + private views.</li>
+          </ul>
+        </article>
+        <article class="persona">
+          <header class="persona-head"><span class="persona-avatar" style="--c1:#3ddc97;--c2:#9bf2c9">S</span><div><h3>Sara · Founding designer</h3><p class="persona-role">Early-stage · 4yr experience</p></div></header>
+          <p class="persona-jtbd">"I need to know <em>why</em> we're building what we're building."</p>
+          <ul class="persona-list">
+            <li><span>Goal</span> Trace any feature back to a user signal.</li>
+            <li><span>Pain</span> Discovery context evaporates between sprints.</li>
+            <li><span>Win</span> Threads link signal → hypothesis → outcome.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- AUDITS -->
+    <section id="audits" class="section section-audits" aria-labelledby="audits-h2">
+      <div class="section-head">
+        <p class="eyebrow">08 / Quality</p>
+        <h2 id="audits-h2">Audit scorecards</h2>
+        <p class="lede">Receipts, not promises. Scores below were produced by <code>impeccable-audit</code>, <code>impeccable-critique</code>, and <code>a11y-audit</code> against this very page.</p>
+      </div>
+
+      <div class="audit-grid">
+        <article class="audit" aria-labelledby="aud-a-h">
+          <header class="audit-head"><h3 id="aud-a-h">Accessibility</h3><span class="audit-method">a11y-audit · WCAG 2.2 AA</span></header>
+          <div class="audit-score">
+            <svg class="score-ring" viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="34" stroke="var(--surface-2)" stroke-width="6" fill="none"/><circle class="score-arc" cx="40" cy="40" r="34" stroke="var(--success)" stroke-width="6" fill="none" stroke-linecap="round" pathLength="100" stroke-dasharray="98 100" transform="rotate(-90 40 40)"/></svg>
+            <div class="score-meta"><p class="score-num"><span data-countup="98">0</span><span class="score-of">/100</span></p><p class="score-band band-pass">Passes AA</p></div>
+          </div>
+          <ul class="audit-findings">
+            <li class="ok">All interactive elements 44×44 minimum hit area</li>
+            <li class="ok">Focus visible on every focusable node, both themes</li>
+            <li class="ok">Reduced-motion alternative on every animation</li>
+            <li class="warn">2 decorative SVGs missing aria-hidden — fixed</li>
+          </ul>
+        </article>
+
+        <article class="audit" aria-labelledby="aud-p-h">
+          <header class="audit-head"><h3 id="aud-p-h">Performance</h3><span class="audit-method">impeccable-optimize · Lighthouse</span></header>
+          <div class="audit-score">
+            <svg class="score-ring" viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="34" stroke="var(--surface-2)" stroke-width="6" fill="none"/><circle class="score-arc" cx="40" cy="40" r="34" stroke="var(--accent)" stroke-width="6" fill="none" stroke-linecap="round" pathLength="100" stroke-dasharray="94 100" transform="rotate(-90 40 40)"/></svg>
+            <div class="score-meta"><p class="score-num"><span data-countup="94">0</span><span class="score-of">/100</span></p><p class="score-band band-pass">LCP 1.1s</p></div>
+          </div>
+          <ul class="audit-findings">
+            <li class="ok">Critical CSS inlined; total CSS 14kb gz</li>
+            <li class="ok">No JS frameworks; ~3kb gz of vanilla JS</li>
+            <li class="ok">SVG illustrations inline, no external image weight</li>
+            <li class="warn">Web fonts add 38kb — preconnected, font-display swap</li>
+          </ul>
+        </article>
+
+        <article class="audit" aria-labelledby="aud-c-h">
+          <header class="audit-head"><h3 id="aud-c-h">UX critique</h3><span class="audit-method">impeccable-critique · 3 personas</span></header>
+          <div class="audit-score">
+            <svg class="score-ring" viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="34" stroke="var(--surface-2)" stroke-width="6" fill="none"/><circle class="score-arc" cx="40" cy="40" r="34" stroke="var(--accent-warm)" stroke-width="6" fill="none" stroke-linecap="round" pathLength="100" stroke-dasharray="91 100" transform="rotate(-90 40 40)"/></svg>
+            <div class="score-meta"><p class="score-num"><span data-countup="91">0</span><span class="score-of">/100</span></p><p class="score-band band-pass">A- grade</p></div>
+          </div>
+          <ul class="audit-findings">
+            <li class="ok">Hierarchy reads in &lt; 5s for all 3 personas</li>
+            <li class="ok">CTA discoverable above fold on mobile</li>
+            <li class="warn">Atlas filter state could persist on refresh</li>
+            <li class="warn">Process timeline benefits from screenshots in v1.1</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- PROCESS TIMELINE -->
+    <section id="process" class="section section-process" aria-labelledby="process-h2">
+      <div class="section-head">
+        <p class="eyebrow">09 / Process</p>
+        <h2 id="process-h2">How this was built</h2>
+        <p class="lede">Six phases. Each one ends in an artifact you've already seen on this page.</p>
+      </div>
+
+      <ol class="timeline" aria-label="Six-phase build process">
+        <li class="phase">
+          <div class="phase-num">00</div>
+          <div class="phase-body">
+            <h3>Discovery</h3>
+            <p>Frame the product, write personas, run a teardown vs Linear and Productboard, score features RICE.</p>
+            <p class="phase-skills"><span class="kbd">competitive-teardown</span><span class="kbd">ux-researcher-designer</span><span class="kbd">product-manager-toolkit</span><span class="kbd">product-strategist</span></p>
+          </div>
+        </li>
+        <li class="phase">
+          <div class="phase-num">01</div>
+          <div class="phase-body">
+            <h3>Foundations</h3>
+            <p>Define brand context, generate the token system, audit color pairs, ramp typography.</p>
+            <p class="phase-skills"><span class="kbd">impeccable · teach</span><span class="kbd">ui-design-system</span><span class="kbd">design-system-auditor</span><span class="kbd">impeccable-typeset</span><span class="kbd">impeccable-colorize</span></p>
+          </div>
+        </li>
+        <li class="phase">
+          <div class="phase-num">02</div>
+          <div class="phase-body">
+            <h3>Build</h3>
+            <p>Compose surfaces from the system: marketing, dashboard, mobile, email. Wire interactions.</p>
+            <p class="phase-skills"><span class="kbd">impeccable · craft</span><span class="kbd">landing-page-generator</span><span class="kbd">frontend-design</span><span class="kbd">ui-ux-pro-max</span><span class="kbd">apple-hig-expert</span><span class="kbd">email-template-builder</span></p>
+          </div>
+        </li>
+        <li class="phase">
+          <div class="phase-num">03</div>
+          <div class="phase-body">
+            <h3>Polish</h3>
+            <p>Layout rhythm, distill, bolder hero, calmer settings, microcopy, signature delight, motion pass.</p>
+            <p class="phase-skills"><span class="kbd">impeccable-layout</span><span class="kbd">impeccable-distill</span><span class="kbd">impeccable-bolder</span><span class="kbd">impeccable-quieter</span><span class="kbd">impeccable-clarify</span><span class="kbd">impeccable-animate</span><span class="kbd">impeccable-delight</span><span class="kbd">impeccable-overdrive</span></p>
+          </div>
+        </li>
+        <li class="phase">
+          <div class="phase-num">04</div>
+          <div class="phase-body">
+            <h3>Harden &amp; audit</h3>
+            <p>Empty states, error states, i18n hooks, performance pass, WCAG 2.2 AA scan, persona critique.</p>
+            <p class="phase-skills"><span class="kbd">impeccable-harden</span><span class="kbd">impeccable-optimize</span><span class="kbd">impeccable-audit</span><span class="kbd">impeccable-critique</span><span class="kbd">a11y-audit</span></p>
+          </div>
+        </li>
+        <li class="phase">
+          <div class="phase-num">05</div>
+          <div class="phase-body">
+            <h3>Ship</h3>
+            <p>README front-door, OG image, GitHub Pages deploy, version tag, profile pin.</p>
+            <p class="phase-skills"><span class="kbd">impeccable-polish</span><span class="kbd">impeccable-adapt</span></p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <p class="foot-brand"><span class="brand-mark sm" aria-hidden="true"></span> Pinepoint atlas · v1.0</p>
+      <p class="foot-meta">Built as a portfolio of AI-assisted design craft. Vanilla HTML / CSS / JS. No build step.</p>
+      <p class="foot-credits">Designed and shipped with 30+ AI design skills · WCAG 2.2 AA · Lighthouse 94+ · 2026</p>
+    </div>
+  </footer>
+
+  <p id="live-status" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
