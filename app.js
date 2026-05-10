@@ -406,6 +406,105 @@
     });
   }
 
+  /* ---------- Sortable feature table ---------- */
+  const FEATURES = [
+    { name: "SSO providers v2",      sub: "Okta, Google, Microsoft",      reach: 240, impact: 3,   conf: 80, effort: 3, status: { l: "P0 · Now",   c: "info"    } },
+    { name: "CSV import",            sub: "Drag, map, validate",          reach: 180, impact: 2,   conf: 90, effort: 2, status: { l: "P0 · Now",   c: "info"    } },
+    { name: "Public roadmap link",   sub: "Read-only share",              reach: 320, impact: 2,   conf: 70, effort: 2, status: { l: "P1 · Next",  c: "warning" } },
+    { name: "Slack digest",          sub: "Customizable cadence",         reach: 140, impact: 2,   conf: 75, effort: 1, status: { l: "P1 · Next",  c: "warning" } },
+    { name: "API webhooks",          sub: "Outbound on signal change",    reach: 60,  impact: 3,   conf: 60, effort: 4, status: { l: "P2 · Later", c: "neutral" } },
+    { name: "AI theme summarizer",   sub: "Cluster → 1-line abstract",    reach: 200, impact: 2.5, conf: 55, effort: 3, status: { l: "Discovery",  c: "neutral" } },
+    { name: "Audit log export",      sub: "SOC 2 readiness",              reach: 40,  impact: 1,   conf: 95, effort: 1, status: { l: "Backlog",    c: "neutral" } },
+    { name: "Native Linear sync",    sub: "Bidirectional issue link",     reach: 110, impact: 2,   conf: 65, effort: 3, status: { l: "P1 · Next",  c: "warning" } },
+  ].map((f) => ({ ...f, score: Math.round((f.reach * f.impact * (f.conf / 100)) / f.effort) }));
+
+  function renderRiceTable(sortKey = "score", dir = "desc") {
+    const body = $("#rice-body");
+    if (!body) return;
+    const rows = [...FEATURES].sort((a, b) => {
+      const av = a[sortKey], bv = b[sortKey];
+      const cmp = typeof av === "string" ? av.localeCompare(bv) : av - bv;
+      return dir === "asc" ? cmp : -cmp;
+    });
+    body.innerHTML = rows.map((f) => `
+      <tr>
+        <td class="feature">${f.name}<span>${f.sub}</span></td>
+        <td class="num">${f.reach}</td>
+        <td class="num">${f.impact}</td>
+        <td class="num">${f.conf}%</td>
+        <td class="num">${f.effort}</td>
+        <td class="num score">${f.score}</td>
+        <td><span class="badge badge-${f.status.c}">${f.status.l}</span></td>
+      </tr>
+    `).join("");
+    $$(".rice-table thead th").forEach((th) => {
+      const btn = $("button", th);
+      const k = btn?.dataset.sort;
+      if (!k) return;
+      const isActive = k === sortKey;
+      th.setAttribute("aria-sort", isActive ? (dir === "asc" ? "ascending" : "descending") : "none");
+      th.classList.toggle("is-sorted", isActive);
+    });
+  }
+
+  function wireRiceTable() {
+    let sortKey = "score";
+    let dir = "desc";
+    renderRiceTable(sortKey, dir);
+    $$(".rice-table thead button").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const k = btn.dataset.sort;
+        if (sortKey === k) { dir = dir === "asc" ? "desc" : "asc"; }
+        else { sortKey = k; dir = (k === "name") ? "asc" : "desc"; }
+        renderRiceTable(sortKey, dir);
+        announce(`Sorted by ${k}, ${dir === "asc" ? "ascending" : "descending"}`);
+      });
+    });
+  }
+
+  /* ---------- Toasts ---------- */
+  const TOAST_COPY = {
+    success: { title: "14 signals archived", msg: "Restore within 30 days from the archive." },
+    info:    { title: "Sync complete",       msg: "Pinepoint just refreshed signals from Intercom." },
+    warning: { title: "API rate limit close",msg: "Linear is at 88% of its hourly quota. Slowing polls." },
+    error:   { title: "Couldn't reach Intercom", msg: "Check your API key in Settings, then retry." },
+  };
+  const TOAST_ICON = { success: "✓", info: "i", warning: "!", error: "×" };
+
+  function fireToast(kind) {
+    const tray = $("#toast-tray");
+    if (!tray) return;
+    const t = TOAST_COPY[kind] || TOAST_COPY.info;
+    const node = document.createElement("div");
+    node.className = `toast toast-${kind}`;
+    node.setAttribute("role", kind === "error" ? "alert" : "status");
+    node.setAttribute("aria-live", kind === "error" ? "assertive" : "polite");
+    node.innerHTML = `
+      <span class="toast-icon" aria-hidden="true">${TOAST_ICON[kind] || "i"}</span>
+      <div class="toast-body">
+        <p class="toast-title">${t.title}</p>
+        <p class="toast-msg">${t.msg}</p>
+      </div>
+      <button type="button" class="toast-close" aria-label="Dismiss notification">×</button>
+    `;
+    tray.appendChild(node);
+    requestAnimationFrame(() => node.classList.add("is-in"));
+    const remove = () => {
+      node.classList.remove("is-in");
+      node.classList.add("is-out");
+      setTimeout(() => node.remove(), 300);
+    };
+    node.querySelector(".toast-close").addEventListener("click", remove);
+    if (!reduced()) setTimeout(remove, 5200);
+    announce(`${kind} notification: ${t.title}`);
+  }
+
+  function wireToasts() {
+    $$(".toast-controls [data-toast]").forEach((btn) => {
+      btn.addEventListener("click", () => fireToast(btn.dataset.toast));
+    });
+  }
+
   /* ---------- Boot ---------- */
   function init() {
     renderAtlas();
@@ -416,6 +515,8 @@
     wireCountUps();
     wireScoreRings();
     wireSectionNav();
+    wireRiceTable();
+    wireToasts();
     announce("Atlas ready.");
   }
 

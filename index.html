@@ -30,7 +30,12 @@
         <a href="#motion">Motion</a>
         <a href="#beforeafter">Before/After</a>
         <a href="#components">Components</a>
-        <a href="#personas">Personas</a>
+        <a href="#table">Table</a>
+        <a href="#mobile">Mobile</a>
+        <a href="#email">Email</a>
+        <a href="#microcopy">Microcopy</a>
+        <a href="#states">States</a>
+        <a href="#journey">Journey</a>
         <a href="#audits">Audits</a>
         <a href="#process">Process</a>
       </nav>
@@ -63,7 +68,7 @@
         </p>
         <div class="hero-stats" role="list" aria-label="Project at a glance">
           <div class="stat" role="listitem"><span class="stat-num" data-countup="34">0</span><span class="stat-label">skills exercised</span></div>
-          <div class="stat" role="listitem"><span class="stat-num" data-countup="12">0</span><span class="stat-label">live demos</span></div>
+          <div class="stat" role="listitem"><span class="stat-num" data-countup="19">0</span><span class="stat-label">live demos</span></div>
           <div class="stat" role="listitem"><span class="stat-num" data-countup="6">0</span><span class="stat-label">design phases</span></div>
           <div class="stat" role="listitem"><span class="stat-num" data-countup="98">0</span><span class="stat-label">Lighthouse a11y</span></div>
         </div>
@@ -359,6 +364,359 @@
           </div>
         </div>
 
+      </div>
+    </section>
+
+    <!-- DATA TABLE -->
+    <section id="table" class="section section-table" aria-labelledby="table-h2">
+      <div class="section-head">
+        <p class="eyebrow">06b / System</p>
+        <h2 id="table-h2">Sortable feature table</h2>
+        <p class="lede">Eight features, RICE-scored. Click a column header to sort. Built with <code>tables-data-specialist</code> patterns: <code>scope</code>, <code>aria-sort</code>, focused row state, no ambiguous link text.</p>
+      </div>
+
+      <div class="table-wrap">
+        <table class="rice-table" aria-label="Pinepoint v1 features ranked by RICE score">
+          <caption class="sr-only">RICE-scored feature table. Sortable by reach, impact, confidence, effort, and score.</caption>
+          <thead>
+            <tr>
+              <th scope="col" aria-sort="none"><button type="button" data-sort="name">Feature</button></th>
+              <th scope="col" aria-sort="none"><button type="button" data-sort="reach">Reach</button></th>
+              <th scope="col" aria-sort="none"><button type="button" data-sort="impact">Impact</button></th>
+              <th scope="col" aria-sort="none"><button type="button" data-sort="conf">Conf.</button></th>
+              <th scope="col" aria-sort="none"><button type="button" data-sort="effort">Effort</button></th>
+              <th scope="col" aria-sort="descending" class="is-sorted"><button type="button" data-sort="score">RICE score</button></th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody id="rice-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- MOBILE -->
+    <section id="mobile" class="section section-mobile" aria-labelledby="mobile-h2">
+      <div class="section-head">
+        <p class="eyebrow">07 / Craft</p>
+        <h2 id="mobile-h2">Mobile companion</h2>
+        <p class="lede">iOS-shaped mockups designed against HIG 2026 patterns: 44 pt hit targets, large titles, sheet presentation, dynamic type ready. Built with <code>apple-hig-expert</code> + <code>impeccable-adapt</code>.</p>
+      </div>
+
+      <div class="phone-row" aria-label="Three mobile screens">
+        <figure class="phone">
+          <span class="phone-notch" aria-hidden="true"></span>
+          <div class="phone-screen">
+            <div class="ios-status"><span>9:41</span><span class="ios-status-icons" aria-hidden="true">●●● ▲ ▮▮▮</span></div>
+            <header class="ios-large-title">
+              <p class="ios-eyebrow">Inbox</p>
+              <h3>Signal inbox</h3>
+              <p class="ios-search">Search 412 signals</p>
+            </header>
+            <ul class="ios-list">
+              <li><span class="ios-dot" style="--c:var(--brand-500)"></span><div><p>Onboarding drop at SSO step</p><span>17 signals · Discovery</span></div><span class="ios-chev" aria-hidden="true">›</span></li>
+              <li><span class="ios-dot" style="--c:var(--pink-500)"></span><div><p>Slack export feels slow</p><span>9 signals · Validation</span></div><span class="ios-chev" aria-hidden="true">›</span></li>
+              <li><span class="ios-dot" style="--c:var(--mint-500)"></span><div><p>Roadmap public link 404</p><span>6 signals · Resolved</span></div><span class="ios-chev" aria-hidden="true">›</span></li>
+              <li><span class="ios-dot" style="--c:var(--warm-500)"></span><div><p>Customers want CSV import</p><span>22 signals · Backlog</span></div><span class="ios-chev" aria-hidden="true">›</span></li>
+            </ul>
+            <nav class="ios-tabbar" aria-label="Mobile tabs">
+              <span class="ios-tab is-on">Inbox</span><span class="ios-tab">Roadmap</span><span class="ios-tab">Threads</span><span class="ios-tab">Me</span>
+            </nav>
+          </div>
+        </figure>
+
+        <figure class="phone">
+          <span class="phone-notch" aria-hidden="true"></span>
+          <div class="phone-screen">
+            <div class="ios-status"><span>9:41</span><span class="ios-status-icons" aria-hidden="true">●●● ▲ ▮▮▮</span></div>
+            <header class="ios-large-title">
+              <p class="ios-eyebrow">Q3 · Roadmap</p>
+              <h3>Now / Next / Later</h3>
+            </header>
+            <div class="kanban">
+              <div class="kanban-col"><h4>Now</h4>
+                <div class="kanban-card"><span class="badge badge-info">P0</span><p>SSO providers v2</p></div>
+                <div class="kanban-card"><span class="badge badge-info">P0</span><p>CSV import</p></div>
+              </div>
+              <div class="kanban-col"><h4>Next</h4>
+                <div class="kanban-card"><span class="badge badge-warning">P1</span><p>Public roadmap</p></div>
+                <div class="kanban-card"><span class="badge badge-warning">P1</span><p>Slack digest</p></div>
+              </div>
+              <div class="kanban-col"><h4>Later</h4>
+                <div class="kanban-card"><span class="badge badge-neutral">P2</span><p>API webhooks</p></div>
+              </div>
+            </div>
+            <nav class="ios-tabbar" aria-label="Mobile tabs">
+              <span class="ios-tab">Inbox</span><span class="ios-tab is-on">Roadmap</span><span class="ios-tab">Threads</span><span class="ios-tab">Me</span>
+            </nav>
+          </div>
+        </figure>
+
+        <figure class="phone">
+          <span class="phone-notch" aria-hidden="true"></span>
+          <div class="phone-screen">
+            <div class="ios-status"><span>9:41</span><span class="ios-status-icons" aria-hidden="true">●●● ▲ ▮▮▮</span></div>
+            <header class="ios-large-title">
+              <p class="ios-eyebrow">Thread #42</p>
+              <h3>Onboarding drop</h3>
+              <p class="ios-search">Discovery · 14 of 22 trial users</p>
+            </header>
+            <ol class="thread">
+              <li><span class="thread-dot" style="--c:var(--brand-500)"></span><div><strong>Signal</strong><p>“I clicked SSO and bounced.” — Maya, trial day 1</p></div></li>
+              <li><span class="thread-dot" style="--c:var(--pink-500)"></span><div><strong>Hypothesis</strong><p>SSO selector is below the fold on 13″ laptops.</p></div></li>
+              <li><span class="thread-dot" style="--c:var(--warm-500)"></span><div><strong>Experiment</strong><p>Move selector above fold; n=240; 14 days.</p></div></li>
+              <li><span class="thread-dot" style="--c:var(--mint-500)"></span><div><strong>Outcome</strong><p>Trial setup completion +18% (CI 9–27%).</p></div></li>
+            </ol>
+            <nav class="ios-tabbar" aria-label="Mobile tabs">
+              <span class="ios-tab">Inbox</span><span class="ios-tab">Roadmap</span><span class="ios-tab is-on">Threads</span><span class="ios-tab">Me</span>
+            </nav>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <!-- EMAIL -->
+    <section id="email" class="section section-email" aria-labelledby="email-h2">
+      <div class="section-head">
+        <p class="eyebrow">08 / Craft</p>
+        <h2 id="email-h2">Email templates</h2>
+        <p class="lede">Two transactional templates rendered as they would land in Gmail and Apple Mail. Plain HTML, no tracking pixels, single column for safe rendering. Built with <code>email-template-builder</code>.</p>
+      </div>
+
+      <div class="email-grid">
+        <article class="email-card" aria-labelledby="em1-h">
+          <header class="email-chrome">
+            <span class="dot dot-r" aria-hidden="true"></span><span class="dot dot-y" aria-hidden="true"></span><span class="dot dot-g" aria-hidden="true"></span>
+            <span class="email-url">welcome@pinepoint.app</span>
+          </header>
+          <div class="email-meta">
+            <p><strong>From:</strong> Pinepoint &lt;hello@pinepoint.app&gt;</p>
+            <p><strong>Subject:</strong> <span id="em1-h">Welcome to Pinepoint, Maya</span></p>
+          </div>
+          <div class="email-body">
+            <h3>You're in. Let's connect a signal source.</h3>
+            <p>Pinepoint clusters customer signals from Intercom, Linear, support tickets, and the App Store into themes you can rank. Three steps to first insight:</p>
+            <ol class="email-steps">
+              <li><strong>Connect</strong> — link Intercom or Linear in 30 seconds.</li>
+              <li><strong>Cluster</strong> — we group last 90 days into themes.</li>
+              <li><strong>Decide</strong> — RICE-rank the top 5 themes.</li>
+            </ol>
+            <p><a class="email-cta" href="#">Connect a source →</a></p>
+            <hr />
+            <p class="email-foot">You'll get one weekly digest. Manage email preferences anytime.</p>
+          </div>
+        </article>
+
+        <article class="email-card" aria-labelledby="em2-h">
+          <header class="email-chrome">
+            <span class="dot dot-r" aria-hidden="true"></span><span class="dot dot-y" aria-hidden="true"></span><span class="dot dot-g" aria-hidden="true"></span>
+            <span class="email-url">digest@pinepoint.app</span>
+          </header>
+          <div class="email-meta">
+            <p><strong>From:</strong> Pinepoint Digest</p>
+            <p><strong>Subject:</strong> <span id="em2-h">Week of May 5 — 3 themes worth your attention</span></p>
+          </div>
+          <div class="email-body">
+            <h3>Three themes climbed this week.</h3>
+            <ul class="email-list">
+              <li><span class="email-rank">1</span><div><strong>SSO selector below the fold</strong><span>22 new signals · +18% week-over-week</span></div></li>
+              <li><span class="email-rank">2</span><div><strong>CSV import for legacy data</strong><span>14 new signals · +9%</span></div></li>
+              <li><span class="email-rank">3</span><div><strong>Slack digest customization</strong><span>9 new signals · +6%</span></div></li>
+            </ul>
+            <p><a class="email-cta" href="#">Open this week's digest →</a></p>
+            <hr />
+            <p class="email-foot">412 signals processed this week. 38 became prioritized work.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- MICROCOPY -->
+    <section id="microcopy" class="section section-microcopy" aria-labelledby="microcopy-h2">
+      <div class="section-head">
+        <p class="eyebrow">09 / Craft</p>
+        <h2 id="microcopy-h2">Microcopy clarified</h2>
+        <p class="lede">Four common UI strings, before and after. <code>impeccable-clarify</code> rewrites for tone, specificity, and what to do next.</p>
+      </div>
+
+      <div class="microcopy-grid">
+        <article class="micro-card">
+          <p class="micro-cat">Error message</p>
+          <div class="micro-row">
+            <div class="micro-pane micro-before">
+              <p class="micro-tag">Before</p>
+              <p class="micro-text">An unexpected error occurred. Please try again.</p>
+            </div>
+            <div class="micro-pane micro-after">
+              <p class="micro-tag">After</p>
+              <p class="micro-text">We couldn't reach Intercom. Check your API key in Settings, then retry.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="micro-card">
+          <p class="micro-cat">Empty state</p>
+          <div class="micro-row">
+            <div class="micro-pane micro-before">
+              <p class="micro-tag">Before</p>
+              <p class="micro-text">No data.</p>
+            </div>
+            <div class="micro-pane micro-after">
+              <p class="micro-tag">After</p>
+              <p class="micro-text">Inbox zero, for now. New signals will land here as soon as Intercom and Linear sync.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="micro-card">
+          <p class="micro-cat">Confirm dialog</p>
+          <div class="micro-row">
+            <div class="micro-pane micro-before">
+              <p class="micro-tag">Before</p>
+              <p class="micro-text">Are you sure?</p>
+            </div>
+            <div class="micro-pane micro-after">
+              <p class="micro-tag">After</p>
+              <p class="micro-text">Archive 14 signals? You can restore them from the archive within 30 days.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="micro-card">
+          <p class="micro-cat">Button label</p>
+          <div class="micro-row">
+            <div class="micro-pane micro-before">
+              <p class="micro-tag">Before</p>
+              <p class="micro-text">Submit · Click here to learn more</p>
+            </div>
+            <div class="micro-pane micro-after">
+              <p class="micro-tag">After</p>
+              <p class="micro-text">Connect Intercom · See how clustering works</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- STATES GALLERY -->
+    <section id="states" class="section section-states" aria-labelledby="states-h2">
+      <div class="section-head">
+        <p class="eyebrow">10 / Quality</p>
+        <h2 id="states-h2">Empty, loading, error — designed</h2>
+        <p class="lede">Production UI is mostly the unhappy path. <code>impeccable-harden</code> gives every surface a real story for empty, loading, partial, error, success, and offline.</p>
+      </div>
+
+      <div class="states-grid">
+        <article class="state-card">
+          <p class="state-cat">Empty</p>
+          <div class="state-art" aria-hidden="true"><svg viewBox="0 0 64 40"><rect x="2" y="6" width="60" height="6" rx="3" fill="none" stroke="currentColor" stroke-dasharray="3 4"/><rect x="2" y="18" width="40" height="6" rx="3" fill="none" stroke="currentColor" stroke-dasharray="3 4"/><rect x="2" y="30" width="50" height="6" rx="3" fill="none" stroke="currentColor" stroke-dasharray="3 4"/></svg></div>
+          <p class="state-title">Inbox zero, for now.</p>
+          <p class="state-sub">New signals will land here as Intercom and Linear sync.</p>
+          <button type="button" class="btn btn-secondary btn-sm">Connect a source</button>
+        </article>
+
+        <article class="state-card">
+          <p class="state-cat">Loading</p>
+          <div class="state-art shimmer-art" aria-hidden="true">
+            <span class="shimmer-line w80"></span>
+            <span class="shimmer-line w60"></span>
+            <span class="shimmer-line w40"></span>
+          </div>
+          <p class="state-title">Crunching last 90 days…</p>
+          <p class="state-sub">Aggregating 412 signals into themes. Usually 4–6 seconds.</p>
+          <span class="badge badge-info">Indexing</span>
+        </article>
+
+        <article class="state-card">
+          <p class="state-cat">Partial</p>
+          <div class="state-art" aria-hidden="true"><svg viewBox="0 0 64 40"><rect x="2" y="6" width="60" height="6" rx="3" fill="currentColor" opacity="0.85"/><rect x="2" y="18" width="38" height="6" rx="3" fill="currentColor" opacity="0.55"/><rect x="2" y="30" width="22" height="6" rx="3" fill="currentColor" opacity="0.25"/></svg></div>
+          <p class="state-title">Showing 18 of 412.</p>
+          <p class="state-sub">Slack signals are still loading — refresh in a few seconds.</p>
+          <button type="button" class="btn btn-ghost btn-sm">Show all</button>
+        </article>
+
+        <article class="state-card state-card-error">
+          <p class="state-cat">Error</p>
+          <div class="state-art" aria-hidden="true"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="16" fill="none" stroke="currentColor" stroke-width="2"/><path d="M14 14 L26 26 M26 14 L14 26" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+          <p class="state-title">Couldn't reach Intercom.</p>
+          <p class="state-sub">Check your API key in Settings, then retry.</p>
+          <div class="state-actions"><button type="button" class="btn btn-danger btn-sm">Retry</button><button type="button" class="btn btn-ghost btn-sm">Go to settings</button></div>
+        </article>
+
+        <article class="state-card state-card-success">
+          <p class="state-cat">Success</p>
+          <div class="state-art" aria-hidden="true"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="16" fill="none" stroke="currentColor" stroke-width="2"/><path d="M13 21 l5 5 l10 -12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <p class="state-title">14 signals archived.</p>
+          <p class="state-sub">Restore within 30 days from the archive.</p>
+          <button type="button" class="btn btn-ghost btn-sm">Undo</button>
+        </article>
+
+        <article class="state-card">
+          <p class="state-cat">Offline</p>
+          <div class="state-art" aria-hidden="true"><svg viewBox="0 0 56 32"><path d="M4 22 q24 -22 48 0" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="28" cy="26" r="3" fill="currentColor"/><line x1="6" y1="6" x2="50" y2="28" stroke="currentColor" stroke-width="2"/></svg></div>
+          <p class="state-title">You're offline.</p>
+          <p class="state-sub">Drafts are saved locally — they'll sync the moment you reconnect.</p>
+          <span class="badge badge-warning">Cached view</span>
+        </article>
+      </div>
+
+      <h3 class="subhead">Toast notifications · click to fire</h3>
+      <div class="toast-controls">
+        <button type="button" class="btn btn-secondary" data-toast="success">Fire success</button>
+        <button type="button" class="btn btn-secondary" data-toast="info">Fire info</button>
+        <button type="button" class="btn btn-secondary" data-toast="warning">Fire warning</button>
+        <button type="button" class="btn btn-danger" data-toast="error">Fire error</button>
+      </div>
+      <div id="toast-tray" class="toast-tray" role="region" aria-label="Notifications"></div>
+    </section>
+
+    <!-- JOURNEY MAP -->
+    <section id="journey" class="section section-journey" aria-labelledby="journey-h2">
+      <div class="section-head">
+        <p class="eyebrow">11 / Research</p>
+        <h2 id="journey-h2">Customer journey · Maya</h2>
+        <p class="lede">From the moment Maya logs a customer signal to the moment a feature ships. Five stages, three lanes — actions, pains, opportunities. Built with <code>ux-researcher-designer</code>.</p>
+      </div>
+
+      <div class="journey-wrap" role="group" aria-label="Five-stage customer journey">
+        <ol class="journey-stages">
+          <li class="jstage" data-stage="1"><span class="jnum">01</span><h3>Notice</h3><p>Sees a Slack thread with three customers asking for the same thing.</p></li>
+          <li class="jstage" data-stage="2"><span class="jnum">02</span><h3>Capture</h3><p>Forwards to Pinepoint inbox — auto-clusters with 17 prior signals.</p></li>
+          <li class="jstage" data-stage="3"><span class="jnum">03</span><h3>Score</h3><p>Reach 240 · Impact 3 · Confidence 70% — RICE = 504.</p></li>
+          <li class="jstage" data-stage="4"><span class="jnum">04</span><h3>Decide</h3><p>Pairs theme to Q3 OKR; opens a thread linking signal → hypothesis.</p></li>
+          <li class="jstage" data-stage="5"><span class="jnum">05</span><h3>Ship</h3><p>Engineering links a PR to the thread; outcome lands in next digest.</p></li>
+        </ol>
+
+        <div class="journey-lanes">
+          <div class="jlane">
+            <span class="jlane-label">Action</span>
+            <div class="jlane-cells">
+              <span>Reads thread</span><span>Forwards email</span><span>Adjusts weights</span><span>Hits Prioritize</span><span>Reviews outcome</span>
+            </div>
+          </div>
+          <div class="jlane jlane-pain">
+            <span class="jlane-label">Pain</span>
+            <div class="jlane-cells">
+              <span>Loses context</span><span>Manual triage</span><span>"Trust the score?"</span><span>Stakeholder ping</span><span>Did it move the metric?</span>
+            </div>
+          </div>
+          <div class="jlane jlane-win">
+            <span class="jlane-label">Opportunity</span>
+            <div class="jlane-cells">
+              <span>One-tap forward</span><span>Auto-cluster</span><span>Show CI bands</span><span>OKR link in thread</span><span>Outcome in digest</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="emo-strip" aria-label="Emotional curve across stages">
+          <svg viewBox="0 0 500 80" preserveAspectRatio="none" role="img" aria-label="Emotion curve: dips at capture, rises through ship">
+            <path d="M0,55 C100,15 130,68 200,52 C260,40 320,18 400,30 C440,36 480,12 500,18" fill="none" stroke="var(--accent)" stroke-width="2.4"/>
+            <circle cx="0"   cy="55" r="4" fill="var(--accent)"/>
+            <circle cx="125" cy="64" r="4" fill="var(--pink-500)"/>
+            <circle cx="250" cy="40" r="4" fill="var(--accent)"/>
+            <circle cx="375" cy="22" r="4" fill="var(--mint-500)"/>
+            <circle cx="500" cy="18" r="4" fill="var(--mint-500)"/>
+          </svg>
+        </div>
       </div>
     </section>
 
