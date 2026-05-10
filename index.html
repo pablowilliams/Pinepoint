@@ -30,12 +30,17 @@
         <a href="#motion">Motion</a>
         <a href="#beforeafter">Before/After</a>
         <a href="#components">Components</a>
+        <a href="#charts">Charts</a>
         <a href="#table">Table</a>
         <a href="#mobile">Mobile</a>
         <a href="#email">Email</a>
         <a href="#microcopy">Microcopy</a>
         <a href="#states">States</a>
+        <a href="#dialog">Dialog</a>
         <a href="#journey">Journey</a>
+        <a href="#strategy">Strategy</a>
+        <a href="#compete">Competitive</a>
+        <a href="#json">JSON</a>
         <a href="#audits">Audits</a>
         <a href="#process">Process</a>
       </nav>
@@ -367,6 +372,118 @@
       </div>
     </section>
 
+    <!-- CHARTS -->
+    <section id="charts" class="section section-charts" aria-labelledby="charts-h2">
+      <div class="section-head">
+        <p class="eyebrow">06a / System</p>
+        <h2 id="charts-h2">Charts &amp; data viz</h2>
+        <p class="lede">Three SVG charts. Each has a real <code>aria-label</code> summarizing the trend, plus an <code>sr-only</code> data table fallback so screen-reader users can read the underlying numbers.</p>
+      </div>
+
+      <div class="charts-grid">
+        <article class="chart-card" aria-labelledby="ch1-h">
+          <header class="chart-head">
+            <h3 id="ch1-h">Signal volume · last 12 weeks</h3>
+            <span class="chart-num"><span data-countup="412">0</span><span class="chart-num-sub"> this week</span></span>
+          </header>
+          <svg class="chart-svg" viewBox="0 0 320 140" preserveAspectRatio="none" role="img" aria-label="Signal volume area chart from week 1 to week 12. Volume rose from 110 to 412 signals per week with a 18 percent gain in the final week.">
+            <defs>
+              <linearGradient id="cg1" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0%"  stop-color="var(--accent)" stop-opacity="0.55"/>
+                <stop offset="100%" stop-color="var(--accent)" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <g class="chart-grid" stroke="var(--line-soft)" stroke-width="1">
+              <line x1="0" y1="35"  x2="320" y2="35"  stroke-dasharray="2 4"/>
+              <line x1="0" y1="70"  x2="320" y2="70"  stroke-dasharray="2 4"/>
+              <line x1="0" y1="105" x2="320" y2="105" stroke-dasharray="2 4"/>
+            </g>
+            <path d="M0,108 L29,114 L58,96 L87,98 L116,84 L145,72 L174,76 L203,58 L232,46 L261,42 L290,28 L320,12 L320,140 L0,140 Z" fill="url(#cg1)"/>
+            <path d="M0,108 L29,114 L58,96 L87,98 L116,84 L145,72 L174,76 L203,58 L232,46 L261,42 L290,28 L320,12" fill="none" stroke="var(--accent)" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+            <circle cx="320" cy="12" r="4" fill="var(--accent)"/>
+            <circle cx="320" cy="12" r="9" fill="var(--accent)" opacity="0.18"/>
+          </svg>
+          <table class="sr-only">
+            <caption>Weekly signal volume</caption>
+            <thead><tr><th scope="col">Week</th><th scope="col">Signals</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>110</td></tr><tr><td>2</td><td>96</td></tr>
+              <tr><td>3</td><td>156</td></tr><tr><td>4</td><td>148</td></tr>
+              <tr><td>5</td><td>198</td></tr><tr><td>6</td><td>234</td></tr>
+              <tr><td>7</td><td>222</td></tr><tr><td>8</td><td>278</td></tr>
+              <tr><td>9</td><td>302</td></tr><tr><td>10</td><td>318</td></tr>
+              <tr><td>11</td><td>362</td></tr><tr><td>12</td><td>412</td></tr>
+            </tbody>
+          </table>
+          <ul class="chart-legend">
+            <li><span class="lg-sw" style="background: var(--accent);"></span>Weekly signal volume</li>
+            <li class="lg-meta">Mean 220 · Median 216 · Δ +275%</li>
+          </ul>
+        </article>
+
+        <article class="chart-card" aria-labelledby="ch2-h">
+          <header class="chart-head">
+            <h3 id="ch2-h">Themes by share</h3>
+            <span class="chart-num"><span data-countup="6">0</span><span class="chart-num-sub"> active themes</span></span>
+          </header>
+          <div class="donut-row">
+            <svg class="chart-svg donut-svg" viewBox="0 0 120 120" role="img" aria-label="Donut chart showing six themes by share of signals: Onboarding 32%, Performance 22%, Integrations 18%, Mobile 12%, Pricing 9%, Other 7%.">
+              <g transform="translate(60,60)">
+                <circle r="46" fill="none" stroke="var(--surface-2)" stroke-width="14"/>
+                <!-- segments computed for circumference 2*pi*46 = 289.03 -->
+                <circle r="46" fill="none" stroke="var(--brand-500)" stroke-width="14" stroke-dasharray="92.49 196.54" stroke-dashoffset="0"  transform="rotate(-90)" />
+                <circle r="46" fill="none" stroke="var(--pink-500)"  stroke-width="14" stroke-dasharray="63.59 225.44" stroke-dashoffset="-92.49" transform="rotate(-90)" />
+                <circle r="46" fill="none" stroke="var(--warm-500)"  stroke-width="14" stroke-dasharray="52.03 237.00" stroke-dashoffset="-156.08" transform="rotate(-90)" />
+                <circle r="46" fill="none" stroke="var(--mint-500)"  stroke-width="14" stroke-dasharray="34.68 254.35" stroke-dashoffset="-208.11" transform="rotate(-90)" />
+                <circle r="46" fill="none" stroke="var(--amber-500)" stroke-width="14" stroke-dasharray="26.01 263.02" stroke-dashoffset="-242.79" transform="rotate(-90)" />
+                <circle r="46" fill="none" stroke="var(--text-dim)"  stroke-width="14" stroke-dasharray="20.23 268.80" stroke-dashoffset="-268.80" transform="rotate(-90)" />
+              </g>
+              <text x="60" y="58" text-anchor="middle" font-family="var(--font-mono)" font-size="9" fill="var(--text-dim)" letter-spacing="1.6">SHARE</text>
+              <text x="60" y="74" text-anchor="middle" font-family="var(--font-display)" font-size="22" font-weight="800" fill="var(--text)">100%</text>
+            </svg>
+            <ul class="chart-legend col">
+              <li><span class="lg-sw" style="background: var(--brand-500);"></span>Onboarding <span class="lg-pct">32%</span></li>
+              <li><span class="lg-sw" style="background: var(--pink-500);"></span>Performance <span class="lg-pct">22%</span></li>
+              <li><span class="lg-sw" style="background: var(--warm-500);"></span>Integrations <span class="lg-pct">18%</span></li>
+              <li><span class="lg-sw" style="background: var(--mint-500);"></span>Mobile <span class="lg-pct">12%</span></li>
+              <li><span class="lg-sw" style="background: var(--amber-500);"></span>Pricing <span class="lg-pct">9%</span></li>
+              <li><span class="lg-sw" style="background: var(--text-dim);"></span>Other <span class="lg-pct">7%</span></li>
+            </ul>
+          </div>
+          <table class="sr-only">
+            <caption>Themes by share of signals</caption>
+            <thead><tr><th scope="col">Theme</th><th scope="col">Share</th></tr></thead>
+            <tbody>
+              <tr><td>Onboarding</td><td>32%</td></tr><tr><td>Performance</td><td>22%</td></tr>
+              <tr><td>Integrations</td><td>18%</td></tr><tr><td>Mobile</td><td>12%</td></tr>
+              <tr><td>Pricing</td><td>9%</td></tr><tr><td>Other</td><td>7%</td></tr>
+            </tbody>
+          </table>
+        </article>
+
+        <article class="chart-card" aria-labelledby="ch3-h">
+          <header class="chart-head">
+            <h3 id="ch3-h">Resolution time by priority</h3>
+            <span class="chart-num"><span data-countup="3">0</span><span class="chart-num-sub"> day median P0</span></span>
+          </header>
+          <div class="bar-chart" aria-hidden="true">
+            <div class="bar-row"><span class="bar-label">P0</span><div class="bar"><span style="--w:18%;background:var(--danger)"></span></div><span class="bar-num">3 d</span></div>
+            <div class="bar-row"><span class="bar-label">P1</span><div class="bar"><span style="--w:38%;background:var(--warning)"></span></div><span class="bar-num">7 d</span></div>
+            <div class="bar-row"><span class="bar-label">P2</span><div class="bar"><span style="--w:62%;background:var(--accent)"></span></div><span class="bar-num">12 d</span></div>
+            <div class="bar-row"><span class="bar-label">P3</span><div class="bar"><span style="--w:88%;background:var(--text-dim)"></span></div><span class="bar-num">18 d</span></div>
+          </div>
+          <table class="sr-only">
+            <caption>Median resolution time by priority</caption>
+            <thead><tr><th scope="col">Priority</th><th scope="col">Median days to resolve</th></tr></thead>
+            <tbody><tr><td>P0</td><td>3</td></tr><tr><td>P1</td><td>7</td></tr><tr><td>P2</td><td>12</td></tr><tr><td>P3</td><td>18</td></tr></tbody>
+          </table>
+          <ul class="chart-legend">
+            <li class="lg-meta">Target: P0 ≤ 4 d · P1 ≤ 10 d · P2 ≤ 14 d</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
     <!-- DATA TABLE -->
     <section id="table" class="section section-table" aria-labelledby="table-h2">
       <div class="section-head">
@@ -669,6 +786,39 @@
       <div id="toast-tray" class="toast-tray" role="region" aria-label="Notifications"></div>
     </section>
 
+    <!-- DIALOG / MODAL -->
+    <section id="dialog" class="section section-dialog" aria-labelledby="dialog-h2">
+      <div class="section-head">
+        <p class="eyebrow">10b / Quality</p>
+        <h2 id="dialog-h2">Accessible dialog</h2>
+        <p class="lede">Native <code>&lt;dialog&gt;</code> element with focus trap, focus return, escape to close, and a clear title + description. The whole pattern in twenty lines.</p>
+      </div>
+
+      <div class="dialog-demo">
+        <button type="button" id="open-dialog" class="btn btn-primary">Archive 14 signals…</button>
+        <p class="dialog-hint">Try Tab inside the dialog (focus stays trapped) and press <kbd>Esc</kbd> to close. Focus returns to the button.</p>
+      </div>
+
+      <dialog id="confirm-dialog" class="dialog" aria-labelledby="dlg-title" aria-describedby="dlg-desc">
+        <div class="dialog-head">
+          <h3 id="dlg-title">Archive 14 signals?</h3>
+          <button type="button" id="dialog-close" class="dialog-x" aria-label="Close dialog">×</button>
+        </div>
+        <p id="dlg-desc" class="dialog-body">
+          You can restore them from the archive within 30 days. After that, signals are permanently deleted.
+        </p>
+        <ul class="dialog-list">
+          <li>Onboarding · 6 signals</li>
+          <li>Performance · 5 signals</li>
+          <li>Mobile · 3 signals</li>
+        </ul>
+        <div class="dialog-actions">
+          <button type="button" id="dialog-cancel" class="btn btn-ghost">Cancel</button>
+          <button type="button" id="dialog-confirm" class="btn btn-danger">Archive</button>
+        </div>
+      </dialog>
+    </section>
+
     <!-- JOURNEY MAP -->
     <section id="journey" class="section section-journey" aria-labelledby="journey-h2">
       <div class="section-head">
@@ -756,6 +906,128 @@
             <li><span>Win</span> Threads link signal → hypothesis → outcome.</li>
           </ul>
         </article>
+      </div>
+    </section>
+
+    <!-- STRATEGY / OKRS -->
+    <section id="strategy" class="section section-strategy" aria-labelledby="strategy-h2">
+      <div class="section-head">
+        <p class="eyebrow">12 / Strategy</p>
+        <h2 id="strategy-h2">Q3 strategy &amp; OKRs</h2>
+        <p class="lede">One sentence vision. Three objectives. Each objective has measurable key results and an owner. Built with <code>product-strategist</code> and a planning <code>experiment-designer</code> hypothesis attached.</p>
+      </div>
+
+      <article class="strategy-doc">
+        <header class="strat-head">
+          <p class="strat-eyebrow">Pinepoint · Strategy memo</p>
+          <h3>From customer signal to shipped strategy.</h3>
+          <p class="strat-sub">Pinepoint is the layer between the customer and the roadmap — the place where signals become themes, themes become bets, and bets become outcomes.</p>
+        </header>
+
+        <div class="okr-grid">
+          <article class="okr">
+            <header><span class="okr-tag">O1</span><h4>Make signal triage feel inevitable.</h4></header>
+            <ul>
+              <li><span class="kr-num">KR1</span> 80% of new signals auto-cluster within 60 seconds.</li>
+              <li><span class="kr-num">KR2</span> Median time-to-prioritize drops from 5 days → 2.</li>
+              <li><span class="kr-num">KR3</span> Daily active PMs/workspace ≥ 1.4.</li>
+            </ul>
+            <footer class="okr-foot"><span>Owner</span> Maya · Senior PM</footer>
+          </article>
+
+          <article class="okr">
+            <header><span class="okr-tag">O2</span><h4>Defendable roadmaps, not vibes.</h4></header>
+            <ul>
+              <li><span class="kr-num">KR1</span> 100% of P0 features link to a signal cluster.</li>
+              <li><span class="kr-num">KR2</span> Public roadmap views ≥ 3,000/mo.</li>
+              <li><span class="kr-num">KR3</span> Stakeholder NPS ≥ +28.</li>
+            </ul>
+            <footer class="okr-foot"><span>Owner</span> Dev · VP Product</footer>
+          </article>
+
+          <article class="okr">
+            <header><span class="okr-tag">O3</span><h4>Close the discovery loop.</h4></header>
+            <ul>
+              <li><span class="kr-num">KR1</span> Threads with linked outcomes: 60% by EOQ.</li>
+              <li><span class="kr-num">KR2</span> Median signal-to-shipped ≤ 28 days.</li>
+              <li><span class="kr-num">KR3</span> Outcome digest open rate ≥ 45%.</li>
+            </ul>
+            <footer class="okr-foot"><span>Owner</span> Sara · Founding designer</footer>
+          </article>
+        </div>
+
+        <aside class="experiment">
+          <header>
+            <span class="exp-tag">Hypothesis</span>
+            <h4>If we move SSO selection above the fold on the workspace setup screen, trial setup completion will rise by ≥ 10%.</h4>
+          </header>
+          <dl class="exp-grid">
+            <div><dt>Metric</dt><dd>Trial setup completion</dd></div>
+            <div><dt>Sample</dt><dd>n ≈ 240 / arm · 14 days</dd></div>
+            <div><dt>Power</dt><dd>80% · MDE 10pp</dd></div>
+            <div><dt>Guardrail</dt><dd>SSO error rate &lt; baseline + 1pp</dd></div>
+            <div><dt>Decision</dt><dd>Roll out at +8pp lift</dd></div>
+            <div><dt>Owner</dt><dd>Maya · &amp; growth squad</dd></div>
+          </dl>
+        </aside>
+      </article>
+    </section>
+
+    <!-- COMPETITIVE -->
+    <section id="compete" class="section section-compete" aria-labelledby="compete-h2">
+      <div class="section-head">
+        <p class="eyebrow">13 / Strategy</p>
+        <h2 id="compete-h2">Competitive matrix</h2>
+        <p class="lede">Pinepoint scored against three category leaders across ten dimensions. Built with <code>competitive-teardown</code>. Indicators pair color, shape, and text — never color alone.</p>
+      </div>
+
+      <div class="table-wrap">
+        <table class="compete-table" aria-label="Competitive matrix: Pinepoint vs Linear vs Productboard vs Aha across ten dimensions">
+          <caption class="sr-only">A check denotes Strong, a half-circle denotes Partial, a circle denotes None.</caption>
+          <thead>
+            <tr>
+              <th scope="col">Dimension</th>
+              <th scope="col" class="us">Pinepoint</th>
+              <th scope="col">Linear</th>
+              <th scope="col">Productboard</th>
+              <th scope="col">Aha!</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Auto-cluster signals</th><td class="us"><span class="ind ind-full"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6 l3 3 l5 -7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Strong</span></td><td><span class="ind ind-none"><svg viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="4.4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>None</span></td><td><span class="ind ind-part"><svg viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="4.4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M6 1.6 A4.4 4.4 0 0 1 6 10.4 Z" fill="currentColor"/></svg>Partial</span></td><td><span class="ind ind-part"><svg viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="4.4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M6 1.6 A4.4 4.4 0 0 1 6 10.4 Z" fill="currentColor"/></svg>Partial</span></td></tr>
+            <tr><th scope="row">RICE in-product</th><td class="us"><span class="ind ind-full"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6 l3 3 l5 -7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Strong</span></td><td><span class="ind ind-part"><svg viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="4.4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M6 1.6 A4.4 4.4 0 0 1 6 10.4 Z" fill="currentColor"/></svg>Partial</span></td><td><span class="ind ind-full"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6 l3 3 l5 -7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Strong</span></td><td><span class="ind ind-full"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6 l3 3 l5 -7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Strong</span></td></tr>
+            <tr><th scope="row">Public roadmap link</th><td class="us"><span class="ind ind-full"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6 l3 3 l5 -7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Strong</span></td><td><span class="ind ind-part"><svg viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="4.4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M6 1.6 A4.4 4.4 0 0 1 6 10.4 Z" fill="currentColor"/></svg>Partial</span></td><td><span class="ind ind-full"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6 l3 3 l5 -7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Strong</span></td><td><span class="ind ind-full"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6 l3 3 l5 -7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Strong</span></td></tr>
+            <tr><th scope="row">Insight ↔ outcome thread</th><td class="us"><span class="ind ind-full"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6 l3 3 l5 -7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Strong</span></td><td><span class="ind ind-none"><svg viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="4.4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>None</span></td><td><span class="ind ind-part"><svg viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="4.4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M6 1.6 A4.4 4.4 0 0 1 6 10.4 Z" fill="currentColor"/></svg>Partial</span></td><td><span class="ind ind-none"><svg viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="4.4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>None</span></td></tr>
+            <tr><th scope="row">Slack-native triage</th><td class="us"><span class="ind ind-full"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6 l3 3 l5 -7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Strong</span></td><td><span class="ind ind-part"><svg viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="4.4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M6 1.6 A4.4 4.4 0 0 1 6 10.4 Z" fill="currentColor"/></svg>Partial</span></td><td><span class="ind ind-part"><svg viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="4.4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M6 1.6 A4.4 4.4 0 0 1 6 10.4 Z" fill="currentColor"/></svg>Partial</span></td><td><span class="ind ind-none"><svg viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="4.4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>None</span></td></tr>
+            <tr><th scope="row">Mobile companion</th><td class="us"><span class="ind ind-full"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6 l3 3 l5 -7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Strong</span></td><td><span class="ind ind-part"><svg viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="4.4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M6 1.6 A4.4 4.4 0 0 1 6 10.4 Z" fill="currentColor"/></svg>Partial</span></td><td><span class="ind ind-none"><svg viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="4.4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>None</span></td><td><span class="ind ind-none"><svg viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="4.4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>None</span></td></tr>
+            <tr><th scope="row">SOC 2 audit log</th><td class="us"><span class="ind ind-part"><svg viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="4.4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M6 1.6 A4.4 4.4 0 0 1 6 10.4 Z" fill="currentColor"/></svg>Partial</span></td><td><span class="ind ind-full"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6 l3 3 l5 -7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Strong</span></td><td><span class="ind ind-full"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6 l3 3 l5 -7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Strong</span></td><td><span class="ind ind-full"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6 l3 3 l5 -7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Strong</span></td></tr>
+            <tr><th scope="row">SDK / Webhooks</th><td class="us"><span class="ind ind-part"><svg viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="4.4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M6 1.6 A4.4 4.4 0 0 1 6 10.4 Z" fill="currentColor"/></svg>Partial</span></td><td><span class="ind ind-full"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6 l3 3 l5 -7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Strong</span></td><td><span class="ind ind-part"><svg viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="4.4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M6 1.6 A4.4 4.4 0 0 1 6 10.4 Z" fill="currentColor"/></svg>Partial</span></td><td><span class="ind ind-full"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6 l3 3 l5 -7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Strong</span></td></tr>
+            <tr><th scope="row">Free tier</th><td class="us"><span class="ind ind-full"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6 l3 3 l5 -7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Strong</span></td><td><span class="ind ind-full"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6 l3 3 l5 -7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Strong</span></td><td><span class="ind ind-none"><svg viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="4.4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>None</span></td><td><span class="ind ind-none"><svg viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="4.4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>None</span></td></tr>
+            <tr><th scope="row">Pricing transparency</th><td class="us"><span class="ind ind-full"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6 l3 3 l5 -7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Strong</span></td><td><span class="ind ind-full"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6 l3 3 l5 -7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Strong</span></td><td><span class="ind ind-part"><svg viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="4.4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M6 1.6 A4.4 4.4 0 0 1 6 10.4 Z" fill="currentColor"/></svg>Partial</span></td><td><span class="ind ind-part"><svg viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="4.4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M6 1.6 A4.4 4.4 0 0 1 6 10.4 Z" fill="currentColor"/></svg>Partial</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="compete-key" aria-hidden="true">
+        <span class="ind-mini ind-full">●</span> Strong &nbsp;
+        <span class="ind-mini ind-part">◐</span> Partial &nbsp;
+        <span class="ind-mini ind-none">○</span> None
+      </p>
+    </section>
+
+    <!-- TOKEN JSON -->
+    <section id="json" class="section section-json" aria-labelledby="json-h2">
+      <div class="section-head">
+        <p class="eyebrow">14 / System</p>
+        <h2 id="json-h2">Tokens, as JSON</h2>
+        <p class="lede">The same tokens you've seen rendered above, exported in a Style Dictionary-compatible format. Click <strong>Copy</strong> to take them to Figma, Storybook, or your build pipeline.</p>
+      </div>
+
+      <div class="code-card">
+        <header class="code-head">
+          <span class="code-file">tokens/colors.json</span>
+          <button type="button" class="btn btn-secondary btn-sm" id="copy-json">Copy</button>
+        </header>
+        <pre class="code-pre"><code id="tokens-json"></code></pre>
       </div>
     </section>
 

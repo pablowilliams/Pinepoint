@@ -505,6 +505,146 @@
     });
   }
 
+  /* ---------- Accessible dialog (focus trap + return + escape) ---------- */
+  function wireDialog() {
+    const dlg = $("#confirm-dialog");
+    const openBtn = $("#open-dialog");
+    const closeBtn = $("#dialog-close");
+    const cancelBtn = $("#dialog-cancel");
+    const confirmBtn = $("#dialog-confirm");
+    if (!dlg || !openBtn) return;
+
+    let returnTo = null;
+
+    const openDialog = () => {
+      returnTo = document.activeElement;
+      if (typeof dlg.showModal === "function") dlg.showModal();
+      else dlg.setAttribute("open", "");
+      // Focus the cancel button (least-destructive default)
+      setTimeout(() => cancelBtn?.focus(), 30);
+    };
+
+    const closeDialog = (msg) => {
+      if (typeof dlg.close === "function") dlg.close();
+      else dlg.removeAttribute("open");
+      if (returnTo && typeof returnTo.focus === "function") returnTo.focus();
+      if (msg) announce(msg);
+    };
+
+    openBtn.addEventListener("click", openDialog);
+    closeBtn.addEventListener("click", () => closeDialog("Dialog closed"));
+    cancelBtn.addEventListener("click", () => closeDialog("Archive cancelled"));
+    confirmBtn.addEventListener("click", () => {
+      closeDialog("14 signals archived");
+      fireToast("success");
+    });
+
+    // Native <dialog> handles Esc → "cancel" event; intercept to also restore focus
+    dlg.addEventListener("cancel", (e) => {
+      e.preventDefault();
+      closeDialog("Dialog dismissed");
+    });
+
+    // Manual focus trap as a defense-in-depth (some Safari/older browsers)
+    dlg.addEventListener("keydown", (e) => {
+      if (e.key !== "Tab") return;
+      const focusables = $$(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
+        dlg
+      ).filter((el) => !el.disabled && el.offsetParent !== null);
+      if (!focusables.length) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault(); last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault(); first.focus();
+      }
+    });
+  }
+
+  /* ---------- Token JSON viewer ---------- */
+  const TOKEN_JSON = {
+    color: {
+      brand:  { 50: "#eef3ff", 100: "#d8e3ff", 300: "#9cb6ff", 500: "#5b8cff", 700: "#3866dd", 900: "#1f3a8a" },
+      warm:   { 300: "#ffd29c", 500: "#ff9a5b", 700: "#d96a26" },
+      pink:   { 500: "#ff7ab8" },
+      mint:   { 500: "#3ddc97" },
+      status: { success: "#3ddc97", warning: "#ffb547", danger: "#ff5d6a", info: "#6ec5ff" }
+    },
+    spacing: { 1: 4, 2: 8, 3: 12, 4: 16, 5: 24, 6: 32, 7: 48, 8: 64, 9: 96 },
+    radius:  { 1: 4, 2: 8, 3: 12, 4: 16, 5: 24, pill: 999 },
+    motion:  {
+      "ease-out-quart": "cubic-bezier(0.25, 1, 0.5, 1)",
+      "ease-out-quint": "cubic-bezier(0.22, 1, 0.36, 1)",
+      "ease-out-expo":  "cubic-bezier(0.16, 1, 0.3, 1)",
+      durations: { fast: "150ms", mid: "280ms", slow: "520ms" }
+    }
+  };
+
+  function highlightJson(json) {
+    const str = JSON.stringify(json, null, 2);
+    return str
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+      .replace(/("(?:[^"\\]|\\.)*")(\s*:)/g, '<span class="tok-key">$1</span>$2')
+      .replace(/:\s*("(?:[^"\\]|\\.)*")/g, (m, s) => ': <span class="tok-str">' + s + '</span>')
+      .replace(/:\s*(-?\d+(?:\.\d+)?)/g, ': <span class="tok-num">$1</span>')
+      .replace(/([{}\[\],])/g, '<span class="tok-punct">$1</span>');
+  }
+
+  function wireJson() {
+    const codeEl = $("#tokens-json");
+    const copyBtn = $("#copy-json");
+    if (!codeEl || !copyBtn) return;
+    codeEl.innerHTML = highlightJson(TOKEN_JSON);
+    copyBtn.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(JSON.stringify(TOKEN_JSON, null, 2));
+        copyBtn.textContent = "Copied";
+        announce("Token JSON copied to clipboard");
+        setTimeout(() => (copyBtn.textContent = "Copy"), 1600);
+      } catch {
+        announce("Copy failed");
+      }
+    });
+  }
+
+  /* ---------- Mouse-reactive hero glow (overdrive) ---------- */
+  function wireHeroGlow() {
+    const hero = $(".hero");
+    const glow = $(".hero-glow");
+    if (!hero || !glow) return;
+    if (reduced()) return;
+    if (window.matchMedia && window.matchMedia("(pointer: coarse)").matches) return;
+
+    let raf = 0;
+    let targetX = 50, targetY = 30;
+    let curX = 50, curY = 30;
+
+    const onMove = (e) => {
+      const r = hero.getBoundingClientRect();
+      const x = ((e.clientX - r.left) / r.width) * 100;
+      const y = ((e.clientY - r.top)  / r.height) * 100;
+      targetX = Math.max(-10, Math.min(110, x));
+      targetY = Math.max(-10, Math.min(110, y));
+      if (!raf) raf = requestAnimationFrame(tick);
+    };
+
+    const tick = () => {
+      curX += (targetX - curX) * 0.08;
+      curY += (targetY - curY) * 0.08;
+      glow.style.setProperty("--mx", curX.toFixed(2) + "%");
+      glow.style.setProperty("--my", curY.toFixed(2) + "%");
+      if (Math.abs(curX - targetX) > 0.2 || Math.abs(curY - targetY) > 0.2) {
+        raf = requestAnimationFrame(tick);
+      } else {
+        raf = 0;
+      }
+    };
+
+    hero.addEventListener("pointermove", onMove);
+  }
+
   /* ---------- Boot ---------- */
   function init() {
     renderAtlas();
@@ -517,6 +657,9 @@
     wireSectionNav();
     wireRiceTable();
     wireToasts();
+    wireDialog();
+    wireJson();
+    wireHeroGlow();
     announce("Atlas ready.");
   }
 
